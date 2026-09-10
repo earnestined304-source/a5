@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager / GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0LY0HY7L01"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0LY0HY7L01');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supper Desk & Culinary Consultation Inquiries | DinnerChapter</title>
+    <meta name="description" content="Connect with the DinnerChapter culinary concierge for supper club reservations, menu design consultations, and press inquiries.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+</head>
+<body data-theme="light">
+    <div class="reading-progress-bar" id="readingProgress"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="brand-logo">
+                <span class="brand-crest">🕯️</span>
+                <div class="brand-text">
+                    <span class="brand-name">DinnerChapter</span>
+                    <span class="brand-sub">Twilight Gastronomy & Supper Club</span>
+                </div>
+            </a>
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link ">Home</a>
+                <a href="about.html" class="nav-link ">Our Philosophy</a>
+                <a href="blog.html" class="nav-link ">Culinary Journal</a>
+                <a href="contact.html" class="nav-link active">Supper Desk & Inquiries</a>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+                    <span class="theme-icon">🌓</span>
+                </button>
+                <a href="contact.html" class="btn btn-primary btn-sm">Join Supper Club</a>
+                <button class="mobile-menu-btn" id="menuToggle" aria-label="Open Navigation Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-drawer-header">
+            <span class="brand-name">DinnerChapter</span>
+            <button class="mobile-drawer-close" id="drawerClose">&times;</button>
+        </div>
+        <nav class="mobile-nav-list">
+            <a href="index.html" class="mobile-nav-link ">Home</a>
+            <a href="about.html" class="mobile-nav-link ">Our Philosophy</a>
+            <a href="blog.html" class="mobile-nav-link ">Culinary Journal</a>
+            <a href="contact.html" class="mobile-nav-link active">Supper Desk & Inquiries</a>
+        </nav>
+    </div>
+
+    <main class="page-main-wrap">
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumb-container">
+        <div class="container">
+            <ul class="breadcrumbs">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Supper Desk & Inquiries</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="article-main-container">
+        <div class="container article-layout">
+            <div class="article-content-column">
+                <header class="article-header">
+                    <span class="article-category-badge">Culinary Concierge</span>
+                    <h1 class="article-title">Connect with the DinnerChapter Culinary Desk</h1>
+                    <p class="lead-paragraph">
+                        Whether you are inquiring about our upcoming seasonal supper club dates, seeking menu design consultation for a private dinner gathering, or wishing to collaborate on culinary research, our atelier team is at your service.
+                    </p>
+                </header>
+
+                <div class="sidebar-widget" style="padding: 2.5rem; margin-bottom: 2.5rem;">
+                    <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem;">Send a Message to Our Kitchen Concierge</h3>
+                    <form onsubmit="event.preventDefault(); alert('Thank you for reaching out to DinnerChapter. Our culinary desk will respond within 24 hours.');">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-primary);">Your Full Name *</label>
+                                <input type="text" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-main); color: var(--text-primary); font-family: var(--font-sans);">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-primary);">Email Address *</label>
+                                <input type="email" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-main); color: var(--text-primary); font-family: var(--font-sans);">
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-primary);">Inquiry Category *</label>
+                            <select required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-main); color: var(--text-primary); font-family: var(--font-sans);">
+                                <option value="">Select inquiry type...</option>
+                                <option value="supper-club">Seasonal Supper Club Seating</option>
+                                <option value="private-dining">Private Dinner Party Menu Design</option>
+                                <option value="culinary-consulting">Restaurant & Menu Consulting</option>
+                                <option value="press">Press & Media Inquiries</option>
+                            </select>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-primary);">Your Message or Event Details *</label>
+                            <textarea rows="5" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-main); color: var(--text-primary); font-family: var(--font-sans);" placeholder="Tell us about your guests, dietary preferences, or culinary questions..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.9rem;">Transmit Inquiry to Concierge</button>
+                    </form>
+                </div>
+            </div>
+
+            <aside class="article-sidebar">
+                <div class="sidebar-widget">
+                    <h3>Atelier Coordinates</h3>
+                    <p style="margin-bottom: 1rem;">Our research kitchen and supper atelier is situated in the Meatpacking District of Manhattan.</p>
+                    <p style="font-size: 0.92rem; margin-bottom: 0.5rem;">📍 <strong>Address:</strong><br>450 West 14th Street<br>New York, NY 10014<br>United States</p>
+                    <p style="font-size: 0.92rem; margin-bottom: 0.5rem;">📞 <strong>Phone Desk:</strong><br>+1-888-924-2783</p>
+                    <p style="font-size: 0.92rem; margin-bottom: 0.5rem;">✉️ <strong>Electronic Dispatch:</strong><br>concierge@dinnerchapter.com</p>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>Service Hours</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                        <strong>Desk Consultations:</strong><br>Monday &ndash; Friday: 9:00 AM &ndash; 6:00 PM EST<br><br>
+                        <strong>Supper Club Seatings:</strong><br>Thursday &ndash; Saturday Evenings: 7:00 PM &ndash; 11:00 PM (By advance reservation only)
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </section>
+    
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand-col">
+                    <div class="brand-logo">
+                        <span class="brand-crest">🕯️</span>
+                        <div class="brand-text">
+                            <span class="brand-name">DinnerChapter</span>
+                            <span class="brand-sub">Twilight Gastronomy</span>
+                        </div>
+                    </div>
+                    <p>An independent culinary storytelling studio and modern supper club dedicated to seasonal multi-course dinner curation, flavor chemistry, and the timeless art of the shared evening table.</p>
+                    <div class="footer-coordinates">
+                        <p>📍 450 West 14th Street, New York, NY 10014, United States</p>
+                        <p>📞 +1-888-924-2783</p>
+                        <p>✉️ concierge@dinnerchapter.com</p>
+                    </div>
+                </div>
+                <div class="footer-nav-col">
+                    <h4>Supper Chapters</h4>
+                    <ul>
+                        <li><a href="index.html">5-Course Sequencer</a></li>
+                        <li><a href="about.html">Chef Manifesto</a></li>
+                        <li><a href="blog.html">Culinary Journal</a></li>
+                        <li><a href="contact.html">Supper Club Table</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav-col">
+                    <h4>Culinary Science</h4>
+                    <ul>
+                        <li><a href="blog/the-science-of-the-maillard-reaction-protein-pyrolysis-flavor-compounds-and-steak-searing-mechanics.html">Maillard Reaction Dynamics</a></li>
+                        <li><a href="blog/the-art-of-the-modern-supper-club-curating-multi-course-narratives-tablescape-design-and-guest-dynamics.html">Supper Club Curation</a></li>
+                        <li><a href="blog/emulsion-chemistry-in-evening-sauces-hollandaise-beurre-blanc-and-velvety-reductions-demystified.html">Sauce Emulsion Physics</a></li>
+                        <li><a href="blog/balancing-the-five-flavor-profiles-salt-acid-fat-heat-and-umami-in-complex-dinner-orchestration.html">5-Flavor Matrix Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav-col">
+                    <h4>Hospitality & Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Culinary Disclaimer</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <?php echo date('Y'); ?> DinnerChapter Atelier LLC. All rights reserved. Elevated evening gastronomy & storytelling.</p>
+                <div class="footer-legal-links">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="disclaimer.html">Disclaimer</a>
+                    <a href="cookies.html">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

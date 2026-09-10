@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager / GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0LY0HY7L01"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0LY0HY7L01');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twilight Gastronomy, Supper Club Curation & Culinary Storytelling | DinnerChapter</title>
+    <meta name="description" content="Explore elevated multi-course dinner architecture, flavor balancing chemistry, seasonal menus, and intimate supper club culture with DinnerChapter.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+</head>
+<body data-theme="light">
+    <div class="reading-progress-bar" id="readingProgress"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="brand-logo">
+                <span class="brand-crest">🕯️</span>
+                <div class="brand-text">
+                    <span class="brand-name">DinnerChapter</span>
+                    <span class="brand-sub">Twilight Gastronomy & Supper Club</span>
+                </div>
+            </a>
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link ">Our Philosophy</a>
+                <a href="blog.html" class="nav-link ">Culinary Journal</a>
+                <a href="contact.html" class="nav-link ">Supper Desk & Inquiries</a>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+                    <span class="theme-icon">🌓</span>
+                </button>
+                <a href="contact.html" class="btn btn-primary btn-sm">Join Supper Club</a>
+                <button class="mobile-menu-btn" id="menuToggle" aria-label="Open Navigation Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-drawer-header">
+            <span class="brand-name">DinnerChapter</span>
+            <button class="mobile-drawer-close" id="drawerClose">&times;</button>
+        </div>
+        <nav class="mobile-nav-list">
+            <a href="index.html" class="mobile-nav-link active">Home</a>
+            <a href="about.html" class="mobile-nav-link ">Our Philosophy</a>
+            <a href="blog.html" class="mobile-nav-link ">Culinary Journal</a>
+            <a href="contact.html" class="mobile-nav-link ">Supper Desk & Inquiries</a>
+        </nav>
+    </div>
+
+    <main class="page-main-wrap">
+
+    <!-- Hero Section -->
+    <section class="hero-dinner-section">
+        <div class="container hero-grid">
+            <div class="hero-text-content">
+                <span class="hero-tag">✨ The Twilight Gastronomy Collective</span>
+                <h1 class="hero-title">Every Memorable Evening Is a Delicious Story Waiting to Unfold.</h1>
+                <p class="hero-subtitle">
+                    DinnerChapter is an independent culinary storytelling atelier and modern supper club. We deconstruct the science of the evening meal—from Maillard crusting thermodynamics to velvety emulsion sauces and communal table rituals.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#sequencer" class="btn btn-primary">Explore 5-Course Sequencer</a>
+                    <a href="about.html" class="btn btn-outline">Our Culinary Philosophy</a>
+                </div>
+            </div>
+            <div class="hero-image-wrap">
+                <img src="images/hero-dinner-table-ambiance.jpg" alt="Warm candlelit dining table ready for multi-course evening dinner" class="hero-main-img">
+                <div class="hero-floating-badge">
+                    <span class="badge-icon">🍽️</span>
+                    <div>
+                        <div class="badge-title">5-Course Narrative</div>
+                        <div class="badge-sub">Curated seasonal harmony</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5-Course Dinner Chapter Sequencer (Interactive) -->
+    <section class="section-sequencer" id="sequencer">
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-subtitle">Interactive Gastronomy</span>
+                <h2>The 5-Course Dinner Chapter Sequencer</h2>
+                <p>A well-orchestrated dinner is composed like a classic symphonic movement. Select each chapter to explore the sensory progression, cooking science, and palate pacing.</p>
+            </div>
+
+            <div class="sequencer-tabs">
+                <button class="course-tab-btn active" data-course="amuse">01. Amuse-Bouche</button>
+                <button class="course-tab-btn" data-course="harvest">02. Earth Harvest</button>
+                <button class="course-tab-btn" data-course="entree">03. Searing Entrée</button>
+                <button class="course-tab-btn" data-course="cleanser">04. Intermezzo Cleanser</button>
+                <button class="course-tab-btn" data-course="dessert">05. Confection & Elixir</button>
+            </div>
+
+            <div class="course-detail-panel" id="coursePanel">
+                <div class="course-text-col">
+                    <span class="course-number">01</span>
+                    <h3 class="course-name">Amuse-Bouche & Aromatic Awakening</h3>
+                    <p>A single, high-intensity bite engineered to stimulate salivary amylase and awaken the gustatory papillae before the dinner unfolds.</p>
+                    <ul class="course-science-list">
+                        <li>Acidic brightness activates trigeminal nerve receptors</li>
+                        <li>Delicate herb essences prime the olfactory cortex</li>
+                        <li>Micro-portioning ensures palate receptivity without early satiety</li>
+                    </ul>
+                </div>
+                <div class="course-img-col">
+                    <img src="images/amuse-bouche-appetizer-course.jpg" alt="Gourmet amuse-bouche tasting bite with botanical garnish" class="course-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flavor Architecture Matrix -->
+    <section class="section-flavor-matrix">
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-subtitle">Sensory Science</span>
+                <h2>The DinnerChapter Flavor Architecture Matrix</h2>
+                <p>Mastering the balance of the five fundamental taste sensations creates multidimensional resonance on the human palate.</p>
+            </div>
+
+            <div class="flavor-grid">
+                <div class="flavor-card">
+                    <span class="flavor-icon">🧂</span>
+                    <h3 class="flavor-title">Salt (Ionic Resonance)</h3>
+                    <p class="flavor-desc">Suppresses bitterness, unmasks hidden aromatic esters, and regulates moisture retention in cellular muscle fibers.</p>
+                    <span class="flavor-pairing-tag">Key: Flaky Fleur de Sel</span>
+                </div>
+                <div class="flavor-card">
+                    <span class="flavor-icon">🍋</span>
+                    <h3 class="flavor-title">Acid (Palate Contrast)</h3>
+                    <p class="flavor-desc">Cuts through heavy lipid coatings, balances richness, and triggers salivary flow to reset taste receptors between bites.</p>
+                    <span class="flavor-pairing-tag">Key: Fermented Verjus & Citrus</span>
+                </div>
+                <div class="flavor-card">
+                    <span class="flavor-icon">🧈</span>
+                    <h3 class="flavor-title">Fat (Aroma Carrier)</h3>
+                    <p class="flavor-desc">Dissolves fat-soluble flavor compounds and coats the tongue to prolong the lingering culinary finish of each bite.</p>
+                    <span class="flavor-pairing-tag">Key: Cultured Butter & Olive Oil</span>
+                </div>
+                <div class="flavor-card">
+                    <span class="flavor-icon">🔥</span>
+                    <h3 class="flavor-title">Heat (Thermal Energy)</h3>
+                    <p class="flavor-desc">Drives Maillard reactions, renders connective collagens, and volatilizes delicate aromatic oils into the air.</p>
+                    <span class="flavor-pairing-tag">Key: Radiant Cast Iron Heat</span>
+                </div>
+                <div class="flavor-card">
+                    <span class="flavor-icon">🍄</span>
+                    <h3 class="flavor-title">Umami (Savory Depth)</h3>
+                    <p class="flavor-desc">Glutamates and nucleotides trigger deep satisfaction, magnifying savory satisfaction across roasted dinner courses.</p>
+                    <span class="flavor-pairing-tag">Key: Roasted Mushrooms & Stocks</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5 Pillars of Memorable Dining -->
+    <section class="section-pillars">
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-subtitle">Hospitality Principles</span>
+                <h2>The 5 Pillars of Elevated Supper Gatherings</h2>
+                <p>A truly transformative dinner transcends mere food—it is an immersive sensory environment shaped by thoughtful details.</p>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-item">
+                    <span class="pillar-num">01</span>
+                    <div class="pillar-content">
+                        <h4>Candlelight & Twilight Ambiance</h4>
+                        <p>Low-color-temperature lighting (2200K–2700K) softens facial angles, reduces cortisol, and invites unhurried intimate conversations.</p>
+                    </div>
+                </div>
+                <div class="pillar-item">
+                    <span class="pillar-num">02</span>
+                    <div class="pillar-content">
+                        <h4>Terroir-Synced Seasonality</h4>
+                        <p>Harvesting ingredients at peak ripeness delivers natural sugar-acid balances that require minimal artificial enhancement in the kitchen.</p>
+                    </div>
+                </div>
+                <div class="pillar-item">
+                    <span class="pillar-num">03</span>
+                    <div class="pillar-content">
+                        <h4>The Art of the Shared Table</h4>
+                        <p>Communal platters and intentional seating arrangements break social barriers, transforming strangers into lifelong companions.</p>
+                    </div>
+                </div>
+                <div class="pillar-item">
+                    <span class="pillar-num">04</span>
+                    <div class="pillar-content">
+                        <h4>Sauce Architecture & Searing</h4>
+                        <p>Every plate features a harmonious textural contrast: a crisp caramelized exterior supported by a velvety emulsion or reduction sauce.</p>
+                    </div>
+                </div>
+                <div class="pillar-item">
+                    <span class="pillar-num">05</span>
+                    <div class="pillar-content">
+                        <h4>Zero-Waste Kitchen Mise-en-Place</h4>
+                        <p>Vegetable trims become golden roasted broths, herb stems become infused oils, and day-old sourdough transforms into crisp pangrattato.</p>
+                    </div>
+                </div>
+                <div class="pillar-item">
+                    <span class="pillar-num">06</span>
+                    <div class="pillar-content">
+                        <h4>Reflective Digestif Ritual</h4>
+                        <p>Closing the meal with warm botanical herbal elixirs supports digestive comfort and provides a relaxed space for evening reflection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seasonal Menu Harmonizer Calendar -->
+    <section class="section-seasonality">
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-subtitle">Farm-to-Table Rhythm</span>
+                <h2>Seasonal Menu Harmonizer Calendar</h2>
+                <p>Aligning dinner menus with the biological calendar ensures peak flavor density and environmental sustainability.</p>
+            </div>
+
+            <div class="season-grid">
+                <div class="season-card">
+                    <span class="season-badge">Spring Equinox</span>
+                    <h4>Awakening & Green Herbs</h4>
+                    <ul class="season-list">
+                        <li>Morel mushrooms & wild ramps</li>
+                        <li>Tender asparagus & garden peas</li>
+                        <li>Chive blossom botanical vinaigrettes</li>
+                        <li>Velvety tarragon emulsion sauces</li>
+                    </ul>
+                </div>
+                <div class="season-card">
+                    <span class="season-badge">Summer Solstice</span>
+                    <h4>Vibrant Sun & Sun-Ripened Bounty</h4>
+                    <ul class="season-list">
+                        <li>Heirloom tomatoes & fresh basil</li>
+                        <li>Charred sweet corn & grilled summer squashes</li>
+                        <li>Chilled cucumber botanical gazpacho</li>
+                        <li>Roasted stone fruit & thyme reductions</li>
+                    </ul>
+                </div>
+                <div class="season-card">
+                    <span class="season-badge">Autumn Harvest</span>
+                    <h4>Earth, Smoke & Roots</h4>
+                    <ul class="season-list">
+                        <li>Roasted kabocha squash & parsnips</li>
+                        <li>Chanterelle mushrooms & sage brown butter</li>
+                        <li>Braised heritage root vegetable ragout</li>
+                        <li>Spiced orchard apple & rosemary reductions</li>
+                    </ul>
+                </div>
+                <div class="season-card">
+                    <span class="season-badge">Winter Solstice</span>
+                    <h4>Rich Simmering & Hearth Warmth</h4>
+                    <ul class="season-list">
+                        <li>Slow-braised savory lentil & winter greens</li>
+                        <li>Caramelized shallot & garlic pan sauces</li>
+                        <li>Velvety celery root & chestnut purees</li>
+                        <li>Dark roasted cocoa & juniper digestif teas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supper Club Invitation CTA -->
+    <section class="section-supper-cta">
+        <div class="container cta-box">
+            <h2>Take Your Seat at the Dinner Table</h2>
+            <p>Whether you are looking to host an unforgettable multi-course gathering or consult with our culinary team on menu design, we welcome your inquiry.</p>
+            <a href="contact.html" class="btn btn-primary" style="background-color: var(--brand-gold); color: #111518;">Reserve a Consultation</a>
+        </div>
+    </section>
+    
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand-col">
+                    <div class="brand-logo">
+                        <span class="brand-crest">🕯️</span>
+                        <div class="brand-text">
+                            <span class="brand-name">DinnerChapter</span>
+                            <span class="brand-sub">Twilight Gastronomy</span>
+                        </div>
+                    </div>
+                    <p>An independent culinary storytelling studio and modern supper club dedicated to seasonal multi-course dinner curation, flavor chemistry, and the timeless art of the shared evening table.</p>
+                    <div class="footer-coordinates">
+                        <p>📍 450 West 14th Street, New York, NY 10014, United States</p>
+                        <p>📞 +1-888-924-2783</p>
+                        <p>✉️ concierge@dinnerchapter.com</p>
+                    </div>
+                </div>
+                <div class="footer-nav-col">
+                    <h4>Supper Chapters</h4>
+                    <ul>
+                        <li><a href="index.html">5-Course Sequencer</a></li>
+                        <li><a href="about.html">Chef Manifesto</a></li>
+                        <li><a href="blog.html">Culinary Journal</a></li>
+                        <li><a href="contact.html">Supper Club Table</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav-col">
+                    <h4>Culinary Science</h4>
+                    <ul>
+                        <li><a href="blog/the-science-of-the-maillard-reaction-protein-pyrolysis-flavor-compounds-and-steak-searing-mechanics.html">Maillard Reaction Dynamics</a></li>
+                        <li><a href="blog/the-art-of-the-modern-supper-club-curating-multi-course-narratives-tablescape-design-and-guest-dynamics.html">Supper Club Curation</a></li>
+                        <li><a href="blog/emulsion-chemistry-in-evening-sauces-hollandaise-beurre-blanc-and-velvety-reductions-demystified.html">Sauce Emulsion Physics</a></li>
+                        <li><a href="blog/balancing-the-five-flavor-profiles-salt-acid-fat-heat-and-umami-in-complex-dinner-orchestration.html">5-Flavor Matrix Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav-col">
+                    <h4>Hospitality & Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Culinary Disclaimer</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <?php echo date('Y'); ?> DinnerChapter Atelier LLC. All rights reserved. Elevated evening gastronomy & storytelling.</p>
+                <div class="footer-legal-links">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="disclaimer.html">Disclaimer</a>
+                    <a href="cookies.html">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
